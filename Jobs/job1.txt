@@ -1,0 +1,21 @@
+Job Title: Software Engineer
+
+Company: Innovatech Solutions  
+Location: Remote (USA preferred)  
+Type: Full-time  
+
+Description:  
+We're seeking a motivated Software Engineer to join our growing team. You'll design, build, and maintain scalable web applications in an agile environment. The ideal candidate is proficient in Python, JavaScript (React), and has experience with cloud platforms (AWS or Azure).
+
+Responsibilities:
+- Write clean, maintainable code
+- Collaborate with product managers and designers
+- Conduct code reviews and unit testing
+- Deploy and monitor production systems
+
+Requirements:
+- Bachelor’s in Computer Science or related field
+- 2+ years of professional software development experience
+- Strong understanding of RESTful APIs and Git workflows
+
+Salary: $90,000–$120,000 + benefits
