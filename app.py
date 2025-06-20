@@ -8,7 +8,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity 
 import spacy
 
-
+nlp = spacy.load("en_core_web_md")
 
 
 
@@ -32,30 +32,17 @@ def upload():
         contents = cv_reading(file)
         new_file = storefiles()
         cleaned_cv = clean_data(contents)
-        all_data = []
+        cv_doc = nlp(cleaned_cv)
 
-        for job in new_file:  
-            all_data.append(job["cleaned description"])
-        all_data.append(cleaned_cv)
-
-        vectorizer = TfidfVectorizer()
-        vectors = vectorizer.fit_transform(all_data)
-
-        similarities = cosine_similarity(vectors[-1], vectors[:-1])[0] 
-        both = enumerate(similarities)
-        top_matches = sorted(both, key=lambda x: x[1], reverse=True)
-        print("Similarity matrix:", similarities)
-        print("Similarity scores:", similarities[0])
-
-
-        top_jobs = []
-        for match in top_matches[:3]:
-            index = match[0]
-            percent = match[1]
-            final = new_file[index].copy()
-            final['percent'] = percent*100
-            top_jobs.append(final)
-
+        similarity_doc = []
+        for file in new_file:
+            cleaned_file = clean_data(file['description'])
+            job_doc = nlp(cleaned_file)
+            similarity = cv_doc.similarity(job_doc)
+            similarity_doc.append((file,similarity))
+        
+        similarity_doc.sort(key = lambda x:x[1],reverse= True)
+        top_jobs = similarity_doc[:3]
         return render_template('results.html', job_listing = top_jobs)
     except RequestEntityTooLarge:
         return "File is larger than 16 MB"

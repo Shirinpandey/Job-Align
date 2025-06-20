@@ -4,7 +4,7 @@
 {% block body %}
     <h2>CV submitted sucessfully</h2>
     <h2>Job Listings</h2>
-    {% for job in job_listing %}
+    {% for job, score in job_listing %}
     <h4>{{"Job " ~ loop.index }}</h4>
     <p> Job Title : {{ job.title }}<br/>
     Company : {{job.company}}<br/>
@@ -12,6 +12,6 @@
     Skills : 
         {{job.skills | join(',')}}<br/>
     Descriptions : {{job.description}}</p>
-    <p>Match Rate: {{job.percent}}</p><hr style="border: 1px solid #696565; margin: 20px 0;">
+    <p>Match Rate: {{score*100}}</p><hr style="border: 1px solid #696565; margin: 20px 0;">
     {% endfor %}
 {% endblock %}
