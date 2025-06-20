@@ -1,11 +1,15 @@
-from flask import Flask, render_template,flash, request, redirect, url_for
-from werkzeug.utils import secure_filename
+from flask import Flask, render_template, request
 from werkzeug.exceptions import RequestEntityTooLarge
 import PyPDF2
 import os,nltk, json
 from io import BytesIO
 from nltk.corpus import stopwords
-from nltk.tokenize import sent_tokenize, word_tokenize
+from sklearn.feature_extraction.text import TfidfVectorizer 
+from sklearn.metrics.pairwise import cosine_similarity 
+import spacy
+
+
+
 
 
 #referencing this file
@@ -27,17 +31,44 @@ def upload():
             return "No file uploaded"
         contents = cv_reading(file)
         new_file = storefiles()
-        clean_data(contents)
-        return render_template('results.html', job_listing = new_file)
+        cleaned_cv = clean_data(contents)
+        all_data = []
+
+        for job in new_file:  
+            all_data.append(job["cleaned description"])
+        all_data.append(cleaned_cv)
+
+        vectorizer = TfidfVectorizer()
+        vectors = vectorizer.fit_transform(all_data)
+
+        similarities = cosine_similarity(vectors[-1], vectors[:-1])[0] 
+        both = enumerate(similarities)
+        top_matches = sorted(both, key=lambda x: x[1], reverse=True)
+        print("Similarity matrix:", similarities)
+        print("Similarity scores:", similarities[0])
+
+
+        top_jobs = []
+        for match in top_matches[:3]:
+            index = match[0]
+            percent = match[1]
+            final = new_file[index].copy()
+            final['percent'] = percent*100
+            top_jobs.append(final)
+
+        return render_template('results.html', job_listing = top_jobs)
     except RequestEntityTooLarge:
         return "File is larger than 16 MB"
+    
+
     
 
 def storefiles():
     with open(os.path.join("jobs", "job.json"), 'r') as f:
         jobs = json.load(f)
-        
-
+    
+    for job in jobs:
+        job['cleaned description'] = clean_data(job['description'])
     return jobs
 
 
