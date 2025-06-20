@@ -3,6 +3,14 @@
 {% endblock %}
 {% block body %}
     <h2>CV submitted sucessfully</h2>
-    <!--to pass python variables in html pages-->
-    <p> {{cv_text}}</p>
+    <h2>Job Listings</h2>
+    {% for job in job_listing %}
+    <h4>{{"Job " ~ loop.index }}</h4>
+    <p> Job Title : {{ job.title }}<br/>
+    Company : {{job.company}}<br/>
+    Location : {{job.location}}<br/>
+    Skills : 
+        {{job.skills | join(',')}}<br/>
+    Descriptions : {{job.description}}</p><hr style="border: 1px solid #696565; margin: 20px 0;">
+    {% endfor %}
 {% endblock %}

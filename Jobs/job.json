@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Junior Software Engineer",
+    "company": "TechNova",
+    "location": "Manchester, UK",
+    "skills": ["Python", "Flask", "Git"],
+    "description": "We are looking for a junior software engineer with experience in Python and Flask. You will help build and maintain web applications."
+  },
+  {
+    "title": "Data Analyst",
+    "company": "InsightLab",
+    "location": "Remote",
+    "skills": ["Excel", "SQL", "Python", "Data Visualization"],
+    "description": "Join our analytics team to create dashboards, analyze trends, and support data-driven decision-making. Familiarity with Python and SQL is essential."
+  },
+  {
+    "title": "Machine Learning Engineer",
+    "company": "AI Systems",
+    "location": "London, UK",
+    "skills": ["Machine Learning", "TensorFlow", "Python", "NLP"],
+    "description": "We're seeking an ML Engineer to build production-ready NLP pipelines. Strong Python and TensorFlow skills required."
+  },
+  {
+    "title": "Frontend Developer",
+    "company": "Creative Code",
+    "location": "Birmingham, UK",
+    "skills": ["JavaScript", "React", "HTML", "CSS"],
+    "description": "Develop and maintain modern user interfaces using React. Work closely with designers and backend developers to create responsive applications."
+  },
+  {
+    "title": "Backend Developer (Django)",
+    "company": "CloudCore",
+    "location": "Leeds, UK",
+    "skills": ["Python", "Django", "REST APIs", "PostgreSQL"],
+    "description": "We're hiring a backend developer to build and maintain RESTful APIs using Django. Experience with databases and scalable applications preferred."
+  }
+]
