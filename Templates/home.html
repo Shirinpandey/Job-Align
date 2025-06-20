@@ -2,14 +2,11 @@
 {% block head %}
 {% endblock %}
 {% block body %}
-    <h1 class = "title"> Welcome to Job Finder</h1>
     <h2>Enter your CV</h2>
     <div class="container">
         <form action = "/upload" method ="post" enctype="multipart/form-data">
         <input type="file" name="cv" accept=".txt,.pdf" required><br><br>
-        <input type = "submit" name = 'Upload'><br><br>
-        <!-- <button type="submit">Upload</button> -->
-
+        <input type = "submit" name = 'Upload' ><br><br>
         </form>
     </div>
 {% endblock %}
