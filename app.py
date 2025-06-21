@@ -31,7 +31,6 @@ def upload():
             return "No file uploaded"
         contents = cv_reading(file)
         new_file = read_api()
-        print(new_file)
         cleaned_cv = clean_data(contents)
         cv_doc = nlp(cleaned_cv)
 
@@ -50,16 +49,16 @@ def upload():
     
 
 def read_api():
-    url = 'https://jsearch.p.rapidapi.com/estimated-salary?job_title=job&location=dubai&location_type=ANY&years_of_experience=ALL&fields=title%2C%20company%2C%20location%2C%20skills%2C%20description'
+    url = 'https://linkedin-job-search-api.p.rapidapi.com/active-jb-1h?offset=0'
 
     headers = {
-        "X-RapidAPI-Key": "469c488de8mshe8051564ac693f3p1d2167jsnc4d77ffed8f4",
-        "X-RapidAPI-Host": "jsearch.p.rapidapi.com"
+        "X-RapidAPI-Key": os.getenv("RAPIDAPI_KEY"),
+        "X-RapidAPI-Host": "linkedin-job-search-api.p.rapidapi.com"
     }
 
     response = requests.get(url, headers=headers)
 
-    return response
+    return response.json()
 
 
 def storefiles():
