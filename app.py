@@ -6,7 +6,7 @@ from io import BytesIO
 from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer 
 from sklearn.metrics.pairwise import cosine_similarity 
-import spacy
+import spacy, requests, json
 
 nlp = spacy.load("en_core_web_md")
 
@@ -30,7 +30,8 @@ def upload():
         if not file:
             return "No file uploaded"
         contents = cv_reading(file)
-        new_file = storefiles()
+        new_file = read_api()
+        print(new_file)
         cleaned_cv = clean_data(contents)
         cv_doc = nlp(cleaned_cv)
 
@@ -43,20 +44,29 @@ def upload():
         
         similarity_doc.sort(key = lambda x:x[1],reverse= True)
         top_jobs = similarity_doc[:3]
-        return render_template('results.html', job_listing = top_jobs)
+        return render_template('results.html', job_listing = top_jobs, new_list = new_file)
     except RequestEntityTooLarge:
         return "File is larger than 16 MB"
     
 
-    
+def read_api():
+    url = 'https://jsearch.p.rapidapi.com/estimated-salary?job_title=job&location=dubai&location_type=ANY&years_of_experience=ALL&fields=title%2C%20company%2C%20location%2C%20skills%2C%20description'
+
+    headers = {
+        "X-RapidAPI-Key": "469c488de8mshe8051564ac693f3p1d2167jsnc4d77ffed8f4",
+        "X-RapidAPI-Host": "jsearch.p.rapidapi.com"
+    }
+
+    response = requests.get(url, headers=headers)
+
+    return response
+
 
 def storefiles():
     with open(os.path.join("jobs", "job.json"), 'r') as f:
         jobs = json.load(f)
     
-    for job in jobs:
-        job['cleaned description'] = clean_data(job['description'])
-    return jobs
+    return jobs 
 
 
 def clean_data(jobs):
