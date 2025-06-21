@@ -10,6 +10,7 @@ import spacy, requests, json
 
 nlp = spacy.load("en_core_web_md")
 
+import http.client
 
 
 #referencing this file
@@ -33,32 +34,33 @@ def upload():
         new_file = read_api()
         cleaned_cv = clean_data(contents)
         cv_doc = nlp(cleaned_cv)
-
         similarity_doc = []
-        for file in new_file:
-            cleaned_file = clean_data(file['description'])
+        
+        for job in new_file["results"]:
+            job_desc = job.get("description", "")
+            cleaned_file = clean_data(job_desc)
             job_doc = nlp(cleaned_file)
             similarity = cv_doc.similarity(job_doc)
-            similarity_doc.append((file,similarity))
+            similarity_doc.append((job,similarity))
         
         similarity_doc.sort(key = lambda x:x[1],reverse= True)
-        top_jobs = similarity_doc[:3]
-        return render_template('results.html', job_listing = top_jobs, new_list = new_file)
+        return render_template('results.html', job_listing = similarity_doc, new_list = new_file["results"])
     except RequestEntityTooLarge:
         return "File is larger than 16 MB"
     
 
 def read_api():
-    url = 'https://linkedin-job-search-api.p.rapidapi.com/active-jb-1h?offset=0'
-
-    headers = {
-        "X-RapidAPI-Key": os.getenv("RAPIDAPI_KEY"),
-        "X-RapidAPI-Host": "linkedin-job-search-api.p.rapidapi.com"
+    app_id = "fdc1d9e8"
+    app_key = "37d7662bc3ab69a8850995ebc7a6dc6b"
+    url = "https://api.adzuna.com/v1/api/jobs/us/search/1"
+    params = {
+        "app_id": app_id,
+        "app_key": app_key,
     }
 
-    response = requests.get(url, headers=headers)
-
-    return response.json()
+    response = requests.get(url, params=params)
+    data = response.json()
+    return data
 
 
 def storefiles():
