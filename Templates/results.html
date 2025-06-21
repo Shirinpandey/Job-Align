@@ -1,17 +1,81 @@
 {% extends 'base.html'%}
 {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
 {% endblock %}
+
 {% block body %}
-    <h2>CV submitted sucessfully</h2>
-    <h2>Job Listings</h2>
-    {% for job, score in job_listing %}
-    <h4>{{"Job " ~ loop.index }}</h4>
-    <p> Job Title : {{ job.title }}<br/>
-    Company : {{job.company}}<br/>
-    Location : {{job.location}}<br/>
-    Skills : 
-        {{job.skills | join(',')}}<br/>
-    Descriptions : {{job.description}}</p>
-    <p>Match Rate: {{score*100}}</p><hr style="border: 1px solid #696565; margin: 20px 0;">
-    {% endfor %}
+<div class="main-section results-section" id="resultsSection">
+    <div class="results-header">
+        <h2>Analysis Complete</h2>
+        <p>We found several job opportunities that match your profile</p>
+    </div>
+
+    <div class="results-stats">
+        <div class="stat-card">
+            <span class="stat-number">{{new_list | length}}</span>
+            <span class="stat-label">Total Jobs Analyzed</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-number">{{job_listing| length}}</span>
+            <span class="stat-label">High Matches Found</span>
+        </div>
+    </div>
+
+    <div class="jobs-container">
+        <div class="jobs-header">
+            <select class="sort-dropdown">
+                <option>Sort by Match Score</option>
+                <option>Sort by Date Posted</option>
+                <option>Sort by Company</option>
+            </select>
+        </div>
+
+    <!-- Job listings start here -->
+        <h2 class="section-title">Recommended Jobs for You</h2>
+        <div class="jobs-grid">
+            {% for job, score in job_listing %}
+                <div class="job-card">
+                    <div class="job-header">
+                        <span class="job-badge">Job {{ loop.index }}</span>
+                        <div class="match-score">
+                            <div class="match-percentage">{{ (score * 100) | round(1) }}%</div>
+                            <div class="match-label">Match Rate</div>
+                        </div>
+                    </div>
+
+                    <div class="job-title">{{ job.title }}</div>
+
+                    <div class="company-info">
+                        <div class="company-name">{{ job.company }}</div>
+                        <div class="location">{{ job.location }}</div>
+                    </div>
+
+                    <div class="skills-container">
+                        <div class="skills-label">Required Skills</div>
+                        <div class="skills-list">
+                            {% for skill in job.skills %}
+                                <span class="skill-tag">{{ skill }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="job-description">{{ job.description }}</div>
+
+                    <div class="job-actions">
+                        <button class="btn btn-primary">Apply</button>
+                        <button class="btn btn-secondary">Save</button>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <!-- Job listings end -->
+
+        <div class="back-section">
+            <button class="back-button" id="backBtn">Upload Another CV</button>
+        </div>
+    </div>
+</div>
+
+
+
 {% endblock %}
