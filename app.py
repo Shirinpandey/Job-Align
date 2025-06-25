@@ -11,11 +11,14 @@ import spacy, requests, json
 nlp = spacy.load("en_core_web_md")
 
 import http.client
+from auth import auth
 
 
 #referencing this file
 app = Flask(__name__)
-app.config['UPLOAD_DIRECTORY'] = '/uploads'
+app.config['UPLOAD_DIRECTORY'] = '/job_search' 
+app.register_blueprint(auth, url_prefix = '/')
+app.register_blueprint(cv, url_prefix = '/cv')
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 
 app.config['ALLOWED_EXTENSIONS'] = ['.txt', '.pdf']
 
@@ -24,44 +27,29 @@ app.config['ALLOWED_EXTENSIONS'] = ['.txt', '.pdf']
 def index():
     return render_template('home.html')
 
-@app.route('/upload', methods = ['POST'])
+@app.route('/job_search', methods = ['POST'])
 def upload():
     try:
         file = request.files['cv']
         if not file:
             return "No file uploaded"
         contents = cv_reading(file)
-        new_file = read_api()
+        new_file = storefiles()
         cleaned_cv = clean_data(contents)
         cv_doc = nlp(cleaned_cv)
         similarity_doc = []
         
-        for job in new_file["results"]:
-            job_desc = job.get("description", "")
-            cleaned_file = clean_data(job_desc)
+        for job in new_file:
+            cleaned_file = clean_data(job['description'])
             job_doc = nlp(cleaned_file)
             similarity = cv_doc.similarity(job_doc)
             similarity_doc.append((job,similarity))
         
         similarity_doc.sort(key = lambda x:x[1],reverse= True)
-        return render_template('results.html', job_listing = similarity_doc, new_list = new_file["results"])
+        return render_template('results.html', job_listing = similarity_doc, new_list = new_file)
     except RequestEntityTooLarge:
         return "File is larger than 16 MB"
     
-
-def read_api():
-    app_id = "fdc1d9e8"
-    app_key = "37d7662bc3ab69a8850995ebc7a6dc6b"
-    url = "https://api.adzuna.com/v1/api/jobs/us/search/1"
-    params = {
-        "app_id": app_id,
-        "app_key": app_key,
-    }
-
-    response = requests.get(url, params=params)
-    data = response.json()
-    return data
-
 
 def storefiles():
     with open(os.path.join("jobs", "job.json"), 'r') as f:
@@ -101,7 +89,6 @@ def cv_reading(file):
             contents = file.read().decode('utf-8')
     return contents
 
-    
+
 if __name__ == "__main__":
     app.run(debug= True)
-

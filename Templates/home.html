@@ -4,12 +4,23 @@
 
 {% endblock %}
 {% block body %}
+<nav class = "navbar">
+    <h1 class = 'header'>Job Align</h1>
+    <span class = 'navbar-icon'></span>
+    <div class = 'collapse-navbar'>
+        <div class ='navbar-nav'>
+            <a class = 'signup' href = '/signup'>Signup</a>
+            <a class = 'signup' href = '/login'>Login</a>
+        </div>
+    </div> 
+</nav>
+
 <div class = 'header'>
-    <h1 class = "title"> Welcome to Job Finder</h1>
+    <!-- <h1 class = "title"> Welcome to Job Finder</h1> -->
 
     <p class="subtitle">Upload your CV to discover personalized career opportunities that match your skills and experience</p>
 </div>
-<form action="/upload" method="post" enctype="multipart/form-data" id="uploadForm">
+<form action="/job_search" method="post" enctype="multipart/form-data" id="uploadForm">
     <label for="cv" class="upload-zone" id="uploadZone">
         <div class="upload-icon">📋</div>
         <div class="upload-text">Click to browse or drag and drop your CV</div>
