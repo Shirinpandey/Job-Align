@@ -1,37 +1,211 @@
 [
-  {
-    "title": "Junior Software Engineer",
-    "company": "TechNova",
-    "location": "Manchester, UK",
-    "skills": ["Python", "Flask", "Git"],
-    "description": "We are looking for a junior software engineer with experience in Python and Flask. You will help build and maintain web applications."
-  },
-  {
-    "title": "Data Analyst",
-    "company": "InsightLab",
-    "location": "Remote",
-    "skills": ["Excel", "SQL", "Python", "Data Visualization"],
-    "description": "Join our analytics team to create dashboards, analyze trends, and support data-driven decision-making. Familiarity with Python and SQL is essential."
-  },
-  {
-    "title": "Machine Learning Engineer",
-    "company": "AI Systems",
-    "location": "London, UK",
-    "skills": ["Machine Learning", "TensorFlow", "Python", "NLP"],
-    "description": "We're seeking an ML Engineer to build production-ready NLP pipelines. Strong Python and TensorFlow skills required."
-  },
-  {
-    "title": "Frontend Developer",
-    "company": "Creative Code",
-    "location": "Birmingham, UK",
-    "skills": ["JavaScript", "React", "HTML", "CSS"],
-    "description": "Develop and maintain modern user interfaces using React. Work closely with designers and backend developers to create responsive applications."
-  },
-  {
-    "title": "Backend Developer (Django)",
-    "company": "CloudCore",
-    "location": "Leeds, UK",
-    "skills": ["Python", "Django", "REST APIs", "PostgreSQL"],
-    "description": "We're hiring a backend developer to build and maintain RESTful APIs using Django. Experience with databases and scalable applications preferred."
-  }
-]
+    {
+      "title": "Junior Software Engineer",
+      "company": "TechNova",
+      "location": "Manchester, UK",
+      "skills": ["Python", "Flask", "Git"],
+      "description": "Join our backend team to develop REST APIs for our analytics platform."
+    },
+    {
+      "title": "Junior Backend Developer",
+      "company": "DataForge",
+      "location": "London, UK",
+      "skills": ["Node.js", "Express", "MongoDB"],
+      "description": "Work on microservices for our data-driven fintech product."
+    },
+    {
+      "title": "Junior Frontend Engineer",
+      "company": "BrightPixels",
+      "location": "Bristol, UK",
+      "skills": ["React", "JavaScript", "CSS"],
+      "description": "Help build responsive interfaces for our web applications."
+    },
+    {
+      "title": "Junior DevOps Engineer",
+      "company": "InfraTech",
+      "location": "Leeds, UK",
+      "skills": ["Docker", "Kubernetes", "AWS"],
+      "description": "Assist in automating deployments and managing cloud infrastructure."
+    },
+    {
+      "title": "Junior Full Stack Developer",
+      "company": "FusionWare",
+      "location": "Edinburgh, UK",
+      "skills": ["Django", "React", "PostgreSQL"],
+      "description": "Develop and maintain full stack features in our SaaS product."
+    },
+    {
+      "title": "Junior Python Developer",
+      "company": "CodeNest",
+      "location": "Cardiff, UK",
+      "skills": ["Python", "FastAPI", "SQLAlchemy"],
+      "description": "Write scalable APIs and work with databases on client projects."
+    },
+    {
+      "title": "Junior Software Engineer",
+      "company": "CloudMint",
+      "location": "Birmingham, UK",
+      "skills": ["Java", "Spring Boot", "Git"],
+      "description": "Develop backend services for enterprise cloud applications."
+    },
+    {
+      "title": "Junior Web Developer",
+      "company": "SoftCrate",
+      "location": "Newcastle, UK",
+      "skills": ["HTML", "CSS", "JavaScript"],
+      "description": "Create and maintain websites for small business clients."
+    },
+    {
+      "title": "Junior Mobile Developer",
+      "company": "AppFoundry",
+      "location": "London, UK",
+      "skills": ["Flutter", "Dart", "Firebase"],
+      "description": "Develop cross-platform mobile apps and work on UI improvements."
+    },
+    {
+      "title": "Junior Data Engineer",
+      "company": "DataSnap",
+      "location": "Glasgow, UK",
+      "skills": ["Python", "Airflow", "SQL"],
+      "description": "Build data pipelines and manage ETL workflows for analytics teams."
+    },
+    {
+      "title": "Junior QA Engineer",
+      "company": "Testify",
+      "location": "Sheffield, UK",
+      "skills": ["Selenium", "Python", "CI/CD"],
+      "description": "Create automated test scripts and support continuous testing."
+    },
+    {
+      "title": "Junior Game Developer",
+      "company": "PixelPlay",
+      "location": "Liverpool, UK",
+      "skills": ["Unity", "C#", "3D Modeling"],
+      "description": "Work on gameplay programming and asset integration."
+    },
+    {
+      "title": "Junior AI Developer",
+      "company": "MindShift",
+      "location": "Oxford, UK",
+      "skills": ["Python", "TensorFlow", "Pandas"],
+      "description": "Develop and train machine learning models for NLP applications."
+    },
+    {
+      "title": "Junior Blockchain Developer",
+      "company": "ChainLinkers",
+      "location": "London, UK",
+      "skills": ["Solidity", "Ethereum", "JavaScript"],
+      "description": "Help develop smart contracts and interact with DeFi protocols."
+    },
+    {
+      "title": "Junior Cybersecurity Analyst",
+      "company": "SecureSys",
+      "location": "Cambridge, UK",
+      "skills": ["Python", "Wireshark", "Nmap"],
+      "description": "Assist with vulnerability scanning and threat monitoring."
+    },
+    {
+      "title": "Junior Embedded Software Engineer",
+      "company": "HardSoft Systems",
+      "location": "Nottingham, UK",
+      "skills": ["C", "Embedded Linux", "Microcontrollers"],
+      "description": "Develop firmware and support low-level system programming."
+    },
+    {
+      "title": "Junior Cloud Developer",
+      "company": "SkyCompute",
+      "location": "Leicester, UK",
+      "skills": ["Azure", "Python", "Terraform"],
+      "description": "Develop infrastructure automation scripts and serverless apps."
+    },
+    {
+      "title": "Junior Site Reliability Engineer",
+      "company": "UptimePro",
+      "location": "Reading, UK",
+      "skills": ["Linux", "Ansible", "Prometheus"],
+      "description": "Monitor systems and build tools to improve reliability and uptime."
+    },
+    {
+      "title": "Junior AR/VR Developer",
+      "company": "VirtualScape",
+      "location": "Brighton, UK",
+      "skills": ["Unity", "C#", "OpenXR"],
+      "description": "Help build immersive AR and VR experiences for clients."
+    },
+    {
+      "title": "Junior Software Developer",
+      "company": "ByteLabs",
+      "location": "Manchester, UK",
+      "skills": ["Python", "Django", "GitHub"],
+      "description": "Join a cross-functional team building scalable internal tools."
+    },{
+      "title": "Marketing Assistant",
+      "company": "BrandReach",
+      "location": "London, UK",
+      "skills": ["Social Media", "SEO", "Content Creation"],
+      "description": "Support the marketing team with campaigns, analytics, and content production."
+    },
+    {
+      "title": "Customer Service Representative",
+      "company": "QuickServe",
+      "location": "Birmingham, UK",
+      "skills": ["Communication", "CRM", "Problem Solving"],
+      "description": "Provide front-line support for customer inquiries via phone and email."
+    },
+    {
+      "title": "Administrative Assistant",
+      "company": "CityCorp",
+      "location": "Manchester, UK",
+      "skills": ["Microsoft Office", "Time Management", "Filing"],
+      "description": "Handle scheduling, document prep, and general office support duties."
+    },
+    {
+      "title": "Sales Associate",
+      "company": "TrendHouse",
+      "location": "Leeds, UK",
+      "skills": ["Customer Service", "POS Systems", "Teamwork"],
+      "description": "Assist customers in-store and support daily retail operations."
+    },
+    {
+      "title": "Receptionist",
+      "company": "HealthOne Clinic",
+      "location": "Bristol, UK",
+      "skills": ["Phone Etiquette", "Scheduling", "Data Entry"],
+      "description": "Greet patients, manage appointments, and handle basic inquiries at the front desk."
+    },
+    {
+      "title": "Human Resources Assistant",
+      "company": "PeopleFirst Ltd.",
+      "location": "Sheffield, UK",
+      "skills": ["Recruitment Support", "Payroll Admin", "Data Handling"],
+      "description": "Assist in onboarding, updating employee records, and HR communication."
+    },
+    {
+      "title": "Event Coordinator Assistant",
+      "company": "EliteEvents",
+      "location": "Glasgow, UK",
+      "skills": ["Planning", "Vendor Communication", "Logistics"],
+      "description": "Help plan and execute corporate and social events."
+    },
+    {
+      "title": "Warehouse Operative",
+      "company": "Pack&Go",
+      "location": "Liverpool, UK",
+      "skills": ["Inventory Management", "Teamwork", "Health & Safety"],
+      "description": "Pick, pack, and dispatch orders in a fast-paced environment."
+    },
+    {
+      "title": "Teaching Assistant",
+      "company": "BrightFuture Academy",
+      "location": "Nottingham, UK",
+      "skills": ["Classroom Support", "Childcare", "Organization"],
+      "description": "Assist teachers in delivering lessons and supporting student activities."
+    },
+    {
+      "title": "Content Writer (Entry Level)",
+      "company": "WordCraft Media",
+      "location": "Edinburgh, UK",
+      "skills": ["Writing", "Editing", "Research"],
+      "description": "Produce blog posts, website content, and support SEO campaigns."
+    }
+  ]
