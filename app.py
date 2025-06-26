@@ -3,6 +3,7 @@ from auth import auth
 from job import job
 from os import path
 from extension import db, DB_NAME
+from flask_login import LoginManager, current_user
 
 
 def create_app():
@@ -23,9 +24,16 @@ def create_app():
     # Route for home page
     @app.route('/')
     def index():
-        return render_template('home.html')
-    
+        return render_template('home.html', user = current_user)
+    from models import User
     create_database(app)
+
+    login_manager = LoginManager()
+    login_manager.login_view = 'auth.login'
+    login_manager.init_app(app)
+    @login_manager.user_loader
+    def load_user(id):
+        return User.query.get(int(id))
 
     return app
 

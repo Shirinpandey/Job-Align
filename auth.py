@@ -30,11 +30,13 @@ def signup():
             new_user = User(email = email , firstname = firstname, lastname = lastname, password_hash = generate_password_hash(password1, method = 'pbkdf2:sha256'))
             db.session.add(new_user)
             db.session.commit()
-            login_user(user, remember=True)
+            login_user(new_user, remember=True)
+            
 
             flash("Account created", category='success')
+            return redirect(url_for('index'))  
         
-    return render_template("signup.html")
+    return render_template("signup.html", user = current_user)
 
 @auth.route('login', methods = ['GET','POST'])
 def login():
@@ -45,18 +47,20 @@ def login():
         user = User.query.filter_by(email=email).first()
         if user:
             if check_password_hash(user.password_hash, password):
-                flash('Logged in succesfully', category='success')
                 login_user(user, remember=True)
+                flash('Logged in succesfully', category='success')
+                return redirect(url_for('index')) 
             else:
                 flash('Password isnt correct',category='error')
         else:
             flash('Email dont match',category='error')
 
-    return render_template("login.html", boolean = True)
+    return render_template("login.html", user = current_user)
 
 
 @auth.route('logout')
 @login_required
 def logout():
     logout_user()
+    flash('Logged out successfully', category='success')  
     return redirect(url_for('auth.login'))

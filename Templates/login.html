@@ -4,24 +4,6 @@
 {% endblock %}
 
 {% block body %}
-{% with messages = get_flashed_messages(with_categories=true) %}
-  {% if messages %}
-    {% for category, message in messages %}
-      {% if category == 'error' %}
-        <div class="flash-message error">
-          {{ message }}
-        <button type="button" class="close">&times;</button>
-        </div>
-
-      {% else %}
-        <div class="flash-message success">
-          {{ message }}
-          <button type="button" class="close">&times;</button>
-        </div>
-      {% endif %}
-    {% endfor %}
-  {% endif %}
-{% endwith %}
 
 <form method = 'POST'>
     <h3>Login</h3>
@@ -36,4 +18,20 @@
 <form action="{{ url_for('index') }}">
   <button action = 'submit' class = 'btn'>Redirect to home</button>
 </form>
+<script>
+  // Wait until the page fully loads
+  document.addEventListener('DOMContentLoaded', function () {
+    // Select all buttons with class 'close' inside flash messages
+    const closeButtons = document.querySelectorAll('.flash-message .close');
+
+    // Loop through each close button and add click event listener
+    closeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Hide the flash message container (parent of the button)
+        button.parentElement.style.display = 'none';
+      });
+    });
+  });
+</script>
+
 {% endblock %}

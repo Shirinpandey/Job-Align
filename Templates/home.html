@@ -34,4 +34,20 @@
     </form>
     </div>
 </div>
+<script>
+  // Wait until the page fully loads
+  document.addEventListener('DOMContentLoaded', function () {
+    // Select all buttons with class 'close' inside flash messages
+    const closeButtons = document.querySelectorAll('.flash-message .close');
+
+    // Loop through each close button and add click event listener
+    closeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Hide the flash message container (parent of the button)
+        button.parentElement.style.display = 'none';
+      });
+    });
+  });
+</script>
+
 {% endblock %}
