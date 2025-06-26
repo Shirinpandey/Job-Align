@@ -1,4 +1,4 @@
-from app import db
+from extension import db 
 from flask_login import UserMixin 
 
 class User(db.Model, UserMixin):
@@ -6,8 +6,7 @@ class User(db.Model, UserMixin):
     firstname = db.Column(db.String(150), nullable=False)
     lastname = db.Column(db.String(150), nullable=False)
     email = db.Column(db.String(150), unique=True, nullable=False)
-    password1 = db.Column(db.String(150), nullable=False)
-    password2 = db.Column(db.String(150), nullable=False)
+    password_hash = db.Column(db.String(150), nullable=False)
 
 
 

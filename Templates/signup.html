@@ -11,13 +11,13 @@
       {% if category == 'error' %}
         <div class="flash-message error">
           {{ message }}
-        <button type="button" class="close">x</button>
+        <button type="button" class="close">&times;</button>
         </div>
 
       {% else %}
         <div class="flash-message success">
           {{ message }}
-        <button type="button" class="close">x</button>
+          <button type="button" class="close">&times;</button>
         </div>
       {% endif %}
     {% endfor %}
@@ -41,4 +41,23 @@
         <button type = 'submit' class = 'btn'>Submit</button>
     </div>
 </form>
+<form action="{{ url_for('index') }}">
+  <button action = 'submit' class = 'btn'>Redirect to home</button>
+</form>
+<script>
+  // Wait until the page fully loads
+  document.addEventListener('DOMContentLoaded', function () {
+    // Select all buttons with class 'close' inside flash messages
+    const closeButtons = document.querySelectorAll('.flash-message .close');
+
+    // Loop through each close button and add click event listener
+    closeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Hide the flash message container (parent of the button)
+        button.parentElement.style.display = 'none';
+      });
+    });
+  });
+</script>
+
 {% endblock %}
