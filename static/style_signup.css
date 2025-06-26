@@ -104,14 +104,19 @@ form h3 {
     border: 1px solid #a5d6a7;
 }
 
-/* Close Button */
+
 .flash-message .close {
-    position: absolute;
-    top: 5px;
-    right: 15px;
-    background: transparent;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
+  background: transparent;
+  border: none;
+  font-weight: bold;
+  font-size: 18px;
+  color: #999;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 10px;
 }
 
+.close:hover {
+  color: #555;
+}

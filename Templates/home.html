@@ -5,8 +5,6 @@
 {% endblock %}
 {% block body %}
 <div class = 'header'>
-    <!-- <h1 class = "title"> Welcome to Job Finder</h1> -->
-
     <p class="subtitle">Upload your CV to discover personalized career opportunities that match your skills and experience</p>
 </div>
 <div class = 'homepage'>
@@ -28,7 +26,7 @@
         
         <input type="submit" value="Analyze CV & Find Matches" class="submit-button">
         {% if uploaded_filename %}
-            <p style="margin-top: 1rem; color: var(--text-secondary);">
+            <p style="margin-top: 1rem; color: rgb(77, 77, 152);">
                 CV Uploaded: {{ uploaded_filename }}
             </p>
         {% endif %}

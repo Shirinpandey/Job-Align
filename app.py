@@ -1,11 +1,9 @@
 from flask import Flask, render_template
 from auth import auth
 from job import job
-from flask_sqlalchemy import SQLAlchemy
 from os import path
+from extension import db, DB_NAME
 
-db = SQLAlchemy()
-DB_NAME = "database.db"
 
 def create_app():
     app = Flask(__name__)
@@ -26,10 +24,13 @@ def create_app():
     @app.route('/')
     def index():
         return render_template('home.html')
+    
+    create_database(app)
 
     return app
 
 def create_database(app):
+    from models import User
     if not path.exists(DB_NAME):
         with app.app_context():
             db.create_all()
@@ -37,5 +38,4 @@ def create_database(app):
 
 if __name__ == "__main__":
     app = create_app()
-    create_database(app)
     app.run(debug=True)
