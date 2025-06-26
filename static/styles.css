@@ -9,37 +9,37 @@
 }
 
 :root {
-            --primary-blue: #2563eb;
-            --primary-blue-dark: #1d4ed8;
-            --primary-blue-light: #3b82f6;
-            --secondary-blue: #1e40af;
-            --accent-blue: #0ea5e9;
-            --light-blue: #eff6ff;
-            --navy-blue: #1e3a8a;
-            --gray-50: #f8fafc;
-            --gray-100: #f1f5f9;
-            --gray-200: #e2e8f0;
-            --gray-300: #cbd5e1;
-            --gray-400: #94a3b8;
-            --gray-500: #64748b;
-            --gray-600: #475569;
-            --gray-700: #334155;
-            --gray-800: #1e293b;
-            --gray-900: #0f172a;
-            --white: #ffffff;
-            --success-green: #059669;
-            --warning-orange: #d97706;
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
+    --primary-blue: #2563eb;
+    --primary-blue-dark: #1d4ed8;
+    --primary-blue-light: #3b82f6;
+    --secondary-blue: #1e40af;
+    --accent-blue: #0ea5e9;
+    --light-blue: #eff6ff;
+    --navy-blue: #1e3a8a;
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    --white: #ffffff;
+    --success-green: #059669;
+    --warning-orange: #d97706;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
 body{
-            font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, var(--gray-50) 0%, var(--light-blue) 100%);
-            min-height: 100vh;
-            color: var(--gray-800);
-            line-height: 1.6;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, var(--gray-50) 0%, var(--light-blue) 100%);
+    min-height: 100vh;
+    color: var(--gray-800);
+    line-height: 1.6;
 
 }
 .title{
@@ -57,18 +57,29 @@ form{
     padding: 60px;
 
 }
+.homepage{
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-title{
+    align-items: top;
+    font-size: 18px;
+    padding: 80px;
+
+}
 
 input[type="file"] {
-      width: 800px;   
-      height: 90px;   
-      font-size: 18px;
-      padding: 5px;
-      border: 2px solid #333;
-      align-items: center;
-      text-align: center;
-      border-radius: 6px;
-      background-color: rgb(207, 200, 224);
-    }
+    width: 800px;   
+    height: 90px;   
+    font-size: 18px;
+    padding: 5px;
+    border: 2px solid #333;
+    align-items: center;
+    text-align: center;
+    border-radius: 6px;
+    background-color: rgb(207, 200, 224);
+}
 
 h2{
     text-align: center;
@@ -76,27 +87,27 @@ h2{
 
 
 .subtitle {
-            font-family: 'Roboto', sans-serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            margin-top: 3rem;
-            letter-spacing: -0.025em;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    margin-top: 3rem;
+    letter-spacing: -0.025em;
 
 }
 .upload-zone {
-        border: 2px dashed var(--gray-300);
-        border-radius: 23px;
-        padding: 3rem 2rem;
-        background: var(--gray-50);
-        transition: all 0.3s ease;
-        cursor: pointer;
-        position: relative;
-    }
+    border: 2px dashed var(--gray-300);
+    border-radius: 23px;
+    padding: 3rem 2rem;
+    background: var(--gray-50);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
 
 .upload-zone:hover{
-        border-color: var(--primary-blue);
-        background: var(--light-blue);
+    border-color: var(--primary-blue);
+    background: var(--light-blue);
 }
 
 .upload-icon {
@@ -113,10 +124,10 @@ h2{
 }
 
 .upload-text {
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: var(--gray-800);
-        margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 0.5rem;
 }
 
 .upload-subtext {
