@@ -191,3 +191,43 @@ h2{
 .signup:hover{
     color: #1e293b;
 }
+.flash-message {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    text-align: center;
+    position: relative;
+}
+
+/* Error Message Style */
+.flash-message.error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
+
+/* Success Message Style */
+.flash-message.success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+}
+
+
+.flash-message .close {
+  background: transparent;
+  border: none;
+  font-weight: bold;
+  font-size: 18px;
+  color: #999;
+  cursor: pointer;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.close:hover {
+  color: #555;
+}
