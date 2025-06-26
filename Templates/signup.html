@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style_signup.css') }}">
+{% endblock %}
+
+{% block body %}
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      {% if category == 'error' %}
+        <div class="flash-message error">
+          {{ message }}
+        <button type="button" class="close">x</button>
+        </div>
+
+      {% else %}
+        <div class="flash-message success">
+          {{ message }}
+        <button type="button" class="close">x</button>
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+
+<form method = 'POST'>
+    <h3>Signup</h3>
+    <div class = 'form-group'>
+        <label for = 'Email'>Email</label>
+            <input type = 'Email' class = 'form-control' name = 'Email' placeholder="Enter Email"><br/>
+        <label for = 'Firstname'>First name</label>
+            <input type = 'Firstname' class = 'form-control' name = 'Firstname' placeholder="Enter First name"><br/>
+        <label for = 'Lastname'>Last name</label>
+            <input type = 'Lastname' class = 'form-control' name = 'Lastname' placeholder="Enter Last name"><br/>
+        <label for = 'Password'>Password</label>
+            <input type = 'Password' class = 'form-control' name = 'Password' placeholder="Enter Password"><br/>
+        <label for = 'Password2'>Password (Confirm)</label>
+            <input type = 'Password' class = 'form-control' name = 'Password2' placeholder="Confirm Password"><br/>
+        <button type = 'submit' class = 'btn'>Submit</button>
+    </div>
+</form>
+{% endblock %}

@@ -4,53 +4,36 @@
 
 {% endblock %}
 {% block body %}
-<nav class = "navbar">
-    <h1 class = 'header'>Job Align</h1>
-    <span class = 'navbar-icon'></span>
-    <div class = 'collapse-navbar'>
-        <div class ='navbar-nav'>
-            <a class = 'signup' href = '/signup'>Signup</a>
-            <a class = 'signup' href = '/login'>Login</a>
-        </div>
-    </div> 
-</nav>
-
 <div class = 'header'>
     <!-- <h1 class = "title"> Welcome to Job Finder</h1> -->
 
     <p class="subtitle">Upload your CV to discover personalized career opportunities that match your skills and experience</p>
 </div>
-<form action="/job_search" method="post" enctype="multipart/form-data" id="uploadForm">
-    <label for="cv" class="upload-zone" id="uploadZone">
-        <div class="upload-icon">📋</div>
-        <div class="upload-text">Click to browse or drag and drop your CV</div>
-        <div class="upload-subtext">Maximum file size: 10MB</div>
-        <div class="file-types">
-            <span class="file-type">PDF</span>
-            <span class="file-type">TXT</span>
-        </div>
-        <input type="file" name="cv" id="cv" accept=".txt,.pdf" required hidden>
-        <div class="selected-file" id="selectedFile"></div>
-    </label> 
-    
-    <input type="submit" value="Analyze CV & Find Matches" class="submit-button">
-    {% if uploaded_filename %}
-        <p style="margin-top: 1rem; color: var(--text-secondary);">
-            CV Uploaded: {{ uploaded_filename }}
-        </p>
-    {% endif %}
+<div class = 'homepage'>
+    <div class = 'search'><h1 class = 'search-title'>Search for your job</h1><br>
+    </div>
+    <div>
+    <form action="/job/" method="post" enctype="multipart/form-data" id="uploadForm">
+        <label for="cv" class="upload-zone" id="uploadZone">
+            <div class="upload-icon">📋</div>
+            <div class="upload-text">Click to browse or drag and drop your CV</div>
+            <div class="upload-subtext">Maximum file size: 10MB</div>
+            <div class="file-types">
+                <span class="file-type">PDF</span>
+                <span class="file-type">TXT</span>
+            </div>
+            <input type="file" name="cv" id="cv" accept=".txt,.pdf" required hidden>
+            <div class="selected-file" id="selectedFile"></div>
+        </label> 
+        
+        <input type="submit" value="Analyze CV & Find Matches" class="submit-button">
+        {% if uploaded_filename %}
+            <p style="margin-top: 1rem; color: var(--text-secondary);">
+                CV Uploaded: {{ uploaded_filename }}
+            </p>
+        {% endif %}
 
-</form>
-<script>
-    const cvInput = document.getElementById('cv');
-    const fileName = document.getElementById('fileName');
-
-    cvInput.addEventListener('change', function () {
-        if (cvInput.files.length > 0) {
-            fileName.textContent = `Selected file: ${cvInput.files[0].name}`;
-        } else {
-            fileName.textContent = '';
-        }
-    });
-</script>
+    </form>
+    </div>
+</div>
 {% endblock %}

@@ -1,94 +1,41 @@
-from flask import Flask, render_template, request
-from werkzeug.exceptions import RequestEntityTooLarge
-import PyPDF2
-import os,nltk, json
-from io import BytesIO
-from nltk.corpus import stopwords
-from sklearn.feature_extraction.text import TfidfVectorizer 
-from sklearn.metrics.pairwise import cosine_similarity 
-import spacy, requests, json
-
-nlp = spacy.load("en_core_web_md")
-
-import http.client
+from flask import Flask, render_template
 from auth import auth
+from job import job
+from flask_sqlalchemy import SQLAlchemy
+from os import path
 
+db = SQLAlchemy()
+DB_NAME = "database.db"
 
-#referencing this file
-app = Flask(__name__)
-app.config['UPLOAD_DIRECTORY'] = '/job_search' 
-app.register_blueprint(auth, url_prefix = '/')
-app.register_blueprint(cv, url_prefix = '/cv')
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024 
-app.config['ALLOWED_EXTENSIONS'] = ['.txt', '.pdf']
-
-#when user goes to browser run home + get means get data post means submit data (here we did post)
-@app.route('/')
-def index():
-    return render_template('home.html')
-
-@app.route('/job_search', methods = ['POST'])
-def upload():
-    try:
-        file = request.files['cv']
-        if not file:
-            return "No file uploaded"
-        contents = cv_reading(file)
-        new_file = storefiles()
-        cleaned_cv = clean_data(contents)
-        cv_doc = nlp(cleaned_cv)
-        similarity_doc = []
-        
-        for job in new_file:
-            cleaned_file = clean_data(job['description'])
-            job_doc = nlp(cleaned_file)
-            similarity = cv_doc.similarity(job_doc)
-            similarity_doc.append((job,similarity))
-        
-        similarity_doc.sort(key = lambda x:x[1],reverse= True)
-        return render_template('results.html', job_listing = similarity_doc, new_list = new_file)
-    except RequestEntityTooLarge:
-        return "File is larger than 16 MB"
+def create_app():
+    app = Flask(__name__)
     
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DB_NAME}'
+    app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16 MB max upload size
+    app.config['ALLOWED_EXTENSIONS'] = ['.txt', '.pdf']
+    app.config['UPLOAD_DIRECTORY'] = 'job'  # Ensure this folder exists
+    app.config['SECRET_KEY'] = 'your-secret-key'
 
-def storefiles():
-    with open(os.path.join("jobs", "job.json"), 'r') as f:
-        jobs = json.load(f)
-    
-    return jobs 
+    db.init_app(app)
 
+    # Register blueprints
+    app.register_blueprint(auth, url_prefix='/')
+    app.register_blueprint(job, url_prefix='/job')
 
-def clean_data(jobs):
-    lower_jobs = jobs.lower()
-    cleaned_char = []
-    for char in lower_jobs:
-        if char.isalnum() or char.isspace():
-            cleaned_char.append(char)
-    cleaned_data = ''.join(cleaned_char)
-    cleaned_no_space = ' '.join(cleaned_data.split())
+    # Route for home page
+    @app.route('/')
+    def index():
+        return render_template('home.html')
 
-    stops = set(stopwords.words('english'))
-    word = cleaned_no_space.split()
-    filtered_words = [w for w in word if w not in stops]
+    return app
 
-    return ' '.join(filtered_words)
-
-
-def cv_reading(file):
-    extension = os.path.splitext(file.filename)[1]
-    if file:
-        if extension not in app.config['ALLOWED_EXTENSIONS']:
-            return "File should be pdf or txt"
-        if file.filename.endswith('.pdf'):
-            pdf_reader = PyPDF2.PdfReader(BytesIO(file.read()))
-            contents = ''
-            for page in pdf_reader.pages:
-                contents += page.extract_text() or ""
-
-        else:
-            contents = file.read().decode('utf-8')
-    return contents
-
+def create_database(app):
+    if not path.exists(DB_NAME):
+        with app.app_context():
+            db.create_all()
+            print('Database created.')
 
 if __name__ == "__main__":
-    app.run(debug= True)
+    app = create_app()
+    create_database(app)
+    app.run(debug=True)

@@ -4,9 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Align</title>
-    {% block head %}{% endblock %}
+    {% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    {% endblock %}
 </head>
 <body>
+    <nav class="navbar">
+        <h1 class="header">Job Align</h1>
+        <div class="collapse-navbar">
+            <div class="navbar-nav">
+                <a class="signup" href="/signup">Signup</a>
+                <a class="signup" href="/login">Login</a>
+                <a class="signup" href="/job">Job Filter</a>
+            </div>
+        </div> 
+    </nav>
+
+    <div class="page-content">
+
     {% block body %}{% endblock %}
 </body>
 </html>
