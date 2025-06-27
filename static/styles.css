@@ -102,6 +102,7 @@ h2{
     background: var(--gray-50);
     transition: all 0.3s ease;
     cursor: pointer;
+    margin-right: 90px;
     position: relative;
 }
 
@@ -167,7 +168,7 @@ h2{
     margin-top: 2rem;
     min-width: 200px;
     position: relative;
-    margin-left:20px ;
+    margin-left:-50px ;
 }
 
 .navbar{
@@ -230,4 +231,49 @@ h2{
 
 .close:hover {
   color: #555;
+}
+.search {
+  max-width: 600px;
+  margin: 50px auto;
+  text-align: center;
+  background-color: #f8f8f8;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.search-title {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: -50px;
+}
+
+.search-input {
+  width: 120%;
+  padding: 12px 30px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-right: 10px;
+  transition: border-color 0.3s;
+}
+
+.search-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.search-btn {
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  margin-top: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-btn:hover {
+  background-color: #0056b3;
 }

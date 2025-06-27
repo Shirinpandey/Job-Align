@@ -13,9 +13,9 @@
         <h1 class="header">Job Align</h1>
         <div class="collapse-navbar">
             <div class="navbar-nav">
-            {% if user.is_authenticated %}
+            {% if current_user.is_authenticated %}
                 <a class="signup" href="/logout">Logout</a>
-                <a class="signup" href="/job">Job Filter</a>
+                <a class="signup" href="/search/saved_jobs">Saved Jobs</a>
             {% else %}
                 <a class="signup" href="/signup">Signup</a>
                 <a class="signup" href="/login">Login</a>
