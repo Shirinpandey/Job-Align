@@ -62,7 +62,9 @@
                         <div class="job-description">{{ job.description }}</div>
 
                         <div class="job-actions">
-                            <button class="btn btn-primary">Apply</button>
+                        <form action = '{{ job.apply }}' method = 'get'>
+                            <button class="btn btn-primary" type = 'submit'>Apply</button>
+                        </form>
                             <button class="btn btn-secondary">Save</button>
                         </div>
                     </div>
@@ -70,11 +72,12 @@
             </div>
             <!-- Job listings end -->
 
-            <div class="back-section">
-                <button class="back-button" id="backBtn">Upload Another CV</button>
-            </div>
+<form action="{{ url_for('index') }}">
+        <div class="back-section">
+            <button class="back-button" id="backBtn" action = 'submit'>Go to home</button>
         </div>
-    </div>
+    </ul>
+</form>
 
 
 

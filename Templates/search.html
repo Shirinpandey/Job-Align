@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="main-section results-section" id="resultsSection">
+    <div class="results-header">
+        <h2>Analysis Complete</h2>
+        <p>We found several job opportunities that match your profile</p>
+    </div>
+
+    <ul>
+        <!-- Job listings start here -->
+        <h2 class="section-title">Recommended Jobs for You</h2>
+        <div class="jobs-grid">
+            {% if jobs %}
+                {% for job in jobs %}
+                    <div class="job-card">
+                        <div class="job-header">
+                            <span class="job-badge">Job {{ loop.index }}</span>
+                        </div>
+
+                        <div class="job-title">{{ job.job_title }}</div>
+
+                        <div class="company-info">
+                            <div class="company-name">{{ job.company }}</div>
+                            <div class="location">{{ job.location }}</div>
+                        </div>
+
+                        <div class="skills-container">
+                            <div class="skills-label">Required Skills</div>
+                            <div class="skills-list">
+                                <span class="skill-tag">{{ job.skills }}</span>
+                            </div>
+                        </div>
+
+                        <div class="job-description">{{ job.description }}</div>
+
+                        <div class="job-actions">
+                            <form action = '{{ job.apply }}' method = 'get'>
+                                <button class="btn btn-primary" type = 'submit'>Apply</button>
+                            </form>
+                            <form action="{{ url_for('search.save_jobs') }}" method="post">
+                                <input type="hidden" name="job_id" value="{{ job.id }}">
+                                <button class="btn btn-secondary">Save</button>
+                            </form>
+                        </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+  
+<form action="{{ url_for('index') }}">
+        <div class="back-section">
+            <button class="back-button" id="backBtn" action = 'submit'>Go to home</button>
+        </div>
+    </ul>
+</form>
+{% endblock %}

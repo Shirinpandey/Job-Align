@@ -1,8 +1,10 @@
 from flask import Flask, render_template
 from auth import auth
 from job import job
+from search import search 
 from os import path
 from extension import db, DB_NAME
+from search import load_jobs_once
 from flask_login import LoginManager, current_user
 
 
@@ -20,6 +22,7 @@ def create_app():
     # Register blueprints
     app.register_blueprint(auth, url_prefix='/')
     app.register_blueprint(job, url_prefix='/job')
+    app.register_blueprint(search, url_prefix='/search')
 
     # Route for home page
     @app.route('/')
@@ -34,6 +37,8 @@ def create_app():
     @login_manager.user_loader
     def load_user(id):
         return User.query.get(int(id))
+    with app.app_context():
+        load_jobs_once() 
 
     return app
 

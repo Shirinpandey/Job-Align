@@ -5,16 +5,20 @@
 {% endblock %}
 {% block body %}
 <div class = 'header'>
-    <p class="subtitle">Upload your CV to discover personalized career opportunities that match your skills and experience</p>
+    <p class="subtitle">Get jobs aligned to your needs or your cv</p>
 </div>
 <div class = 'homepage'>
     <div class = 'search'><h1 class = 'search-title'>Search for your job</h1><br>
+    <form action = "{{ url_for('search.job_search') }}" method = 'GET'>
+      <input type="text" name="query" class="search-input" placeholder="Enter job title, company, or keyword" required>
+      <button action = 'submit' class = 'search-btn'>Search</button>
+    </form>
     </div>
     <div>
     <form action="/job/" method="post" enctype="multipart/form-data" id="uploadForm">
         <label for="cv" class="upload-zone" id="uploadZone">
             <div class="upload-icon">📋</div>
-            <div class="upload-text">Click to browse or drag and drop your CV</div>
+            <div class="upload-text">Click to browse and add your CV  </div>
             <div class="upload-subtext">Maximum file size: 10MB</div>
             <div class="file-types">
                 <span class="file-type">PDF</span>

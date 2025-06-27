@@ -9,6 +9,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity 
 import spacy, requests, json
 from flask import current_app
+from models import Job
+from auth import current_user
+from extension import db 
 
 
 nlp = spacy.load("en_core_web_md")
@@ -29,12 +32,13 @@ def upload():
         
         for job in new_file:
             cleaned_file = clean_data(job['description'])
+            
             job_doc = nlp(cleaned_file)
             similarity = cv_doc.similarity(job_doc)
             similarity_doc.append((job,similarity))
         
         similarity_doc.sort(key = lambda x:x[1],reverse= True)
-        return render_template('results.html', job_listing = similarity_doc, new_list = new_file)
+        return render_template('results.html', job_listing = similarity_doc, new_list = new_file )
     except RequestEntityTooLarge:
         return "File is larger than 16 MB"
     
@@ -42,7 +46,7 @@ def upload():
 def storefiles():
     with open(os.path.join("jobs", "job.json"), 'r') as f:
         jobs = json.load(f)
-    
+
     return jobs 
 
 

@@ -8,5 +8,19 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(150), unique=True, nullable=False)
     password_hash = db.Column(db.String(150), nullable=False)
 
+class Job(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    job_title = db.Column(db.String(150), nullable=False)
+    location = db.Column(db.String(150), nullable=False)
+    company = db.Column(db.String(150), nullable=False)
+    description = db.Column(db.Text)  
+    skills = db.Column(db.String(300)) 
+    apply = db.Column(db.String(300))
 
 
+class SavedJob(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    job_id = db.Column(db.Integer, db.ForeignKey('job.id'), nullable=False)
+    user = db.relationship('User', backref='saved_jobs')
+    job = db.relationship('Job', backref='saved_by')
