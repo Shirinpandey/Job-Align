@@ -311,3 +311,68 @@
 .signup:hover{
     color: #1e293b;
 }
+a {
+  text-decoration: none;
+  color: inherit; /* optional: use surrounding text color */
+}
+
+a:hover {
+  text-decoration: underline; /* or none */
+  color: #04203e; /* optional hover color */
+}
+
+.nojobs{
+    text-align: center;
+    color: #04203e;
+    margin-top: 30px;
+}
+.status-form {
+    display: flex;
+    justify-content: flex-end; /* align to right */
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    max-width: 100%;
+    flex-wrap: wrap;
+}
+
+/* Label above dropdown */
+.status-name {
+    margin: 0;
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--gray-800);
+}
+
+/* Dropdown */
+.sort-dropdown {
+    border-radius: 8px;
+    border: 1px solid var(--primary-blue);
+    font-size: 0.95rem;
+    background-color: var(--primary-blue-light);
+    color: var(--white);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sort-dropdown:hover {
+    background-color: var(--gray-400);
+}
+
+/* Save Button */
+.save-btn {
+    padding: 5px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background-color: var(--success-green);
+    color: var(--white);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.save-btn:hover {
+    background-color: #047857; 
+}

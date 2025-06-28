@@ -4,8 +4,17 @@
     box-sizing: border-box;
     
 }
-.header {
+.header{
     text-align: center;
+}
+a {
+  text-decoration: none;
+  color: inherit; /* optional: use surrounding text color */
+}
+
+a:hover {
+  text-decoration: underline; /* or none */
+  color: #04203e; /* optional hover color */
 }
 
 :root {

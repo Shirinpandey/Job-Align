@@ -5,7 +5,8 @@
     "location": "Manchester, UK",
     "skills": ["Python", "Flask", "Git"],
     "description": "Join our backend team to develop REST APIs for our analytics platform.",
-    "apply": "https://www.technova.com"
+    "apply": "https://www.technova.com",
+    "status": "None"
   },
   {
     "title": "Junior Backend Developer",
@@ -13,7 +14,8 @@
     "location": "London, UK",
     "skills": ["Node.js", "Express", "MongoDB"],
     "description": "Work on microservices for our data-driven fintech product.",
-    "apply": "https://www.dataforge.com"
+    "apply": "https://www.dataforge.com",
+    "status": "None"
   },
   {
     "title": "Junior Frontend Engineer",
@@ -21,7 +23,8 @@
     "location": "Bristol, UK",
     "skills": ["React", "JavaScript", "CSS"],
     "description": "Help build responsive interfaces for our web applications.",
-    "apply": "https://www.brightpixels.com"
+    "apply": "https://www.brightpixels.com",
+    "status": "None"
   },
   {
     "title": "Junior DevOps Engineer",
@@ -29,7 +32,8 @@
     "location": "Leeds, UK",
     "skills": ["Docker", "Kubernetes", "AWS"],
     "description": "Assist in automating deployments and managing cloud infrastructure.",
-    "apply": "https://www.infratech.com"
+    "apply": "https://www.infratech.com",
+    "status": "None"
   },
   {
     "title": "Junior Full Stack Developer",
@@ -37,7 +41,8 @@
     "location": "Edinburgh, UK",
     "skills": ["Django", "React", "PostgreSQL"],
     "description": "Develop and maintain full stack features in our SaaS product.",
-    "apply": "https://www.fusionware.com"
+    "apply": "https://www.fusionware.com",
+    "status": "None"
   },
   {
     "title": "Junior Python Developer",
@@ -45,7 +50,8 @@
     "location": "Cardiff, UK",
     "skills": ["Python", "FastAPI", "SQLAlchemy"],
     "description": "Write scalable APIs and work with databases on client projects.",
-    "apply": "https://www.codenest.com"
+    "apply": "https://www.codenest.com",
+    "status": "None"
   },
   {
     "title": "Junior Software Engineer",
@@ -53,7 +59,8 @@
     "location": "Birmingham, UK",
     "skills": ["Java", "Spring Boot", "Git"],
     "description": "Develop backend services for enterprise cloud applications.",
-    "apply": "https://www.cloudmint.com"
+    "apply": "https://www.cloudmint.com",
+    "status": "None"
   },
   {
     "title": "Junior Web Developer",
@@ -61,7 +68,8 @@
     "location": "Newcastle, UK",
     "skills": ["HTML", "CSS", "JavaScript"],
     "description": "Create and maintain websites for small business clients.",
-    "apply": "https://www.softcrate.com"
+    "apply": "https://www.softcrate.com",
+    "status": "None"
   },
   {
     "title": "Junior Mobile Developer",
@@ -69,7 +77,8 @@
     "location": "London, UK",
     "skills": ["Flutter", "Dart", "Firebase"],
     "description": "Develop cross-platform mobile apps and work on UI improvements.",
-    "apply": "https://www.appfoundry.com"
+    "apply": "https://www.appfoundry.com",
+    "status": "None"
   },
   {
     "title": "Junior Data Engineer",
@@ -77,7 +86,8 @@
     "location": "Glasgow, UK",
     "skills": ["Python", "Airflow", "SQL"],
     "description": "Build data pipelines and manage ETL workflows for analytics teams.",
-    "apply": "https://www.datasnap.com"
+    "apply": "https://www.datasnap.com",
+    "status": "None"
   },
   {
     "title": "Junior QA Engineer",
@@ -85,7 +95,8 @@
     "location": "Sheffield, UK",
     "skills": ["Selenium", "Python", "CI/CD"],
     "description": "Create automated test scripts and support continuous testing.",
-    "apply": "https://www.testify.com"
+    "apply": "https://www.testify.com",
+    "status": "None"
   },
   {
     "title": "Junior Game Developer",
@@ -93,7 +104,8 @@
     "location": "Liverpool, UK",
     "skills": ["Unity", "C#", "3D Modeling"],
     "description": "Work on gameplay programming and asset integration.",
-    "apply": "https://www.pixelplay.com"
+    "apply": "https://www.pixelplay.com",
+    "status": "None"
   },
   {
     "title": "Junior AI Developer",
@@ -101,7 +113,8 @@
     "location": "Oxford, UK",
     "skills": ["Python", "TensorFlow", "Pandas"],
     "description": "Develop and train machine learning models for NLP applications.",
-    "apply": "https://www.mindshift.com"
+    "apply": "https://www.mindshift.com",
+    "status": "None"
   },
   {
     "title": "Junior Blockchain Developer",
@@ -109,7 +122,8 @@
     "location": "London, UK",
     "skills": ["Solidity", "Ethereum", "JavaScript"],
     "description": "Help develop smart contracts and interact with DeFi protocols.",
-    "apply": "https://www.chainlinkers.com"
+    "apply": "https://www.chainlinkers.com",
+    "status": "None"
   },
   {
     "title": "Junior Cybersecurity Analyst",
@@ -117,7 +131,8 @@
     "location": "Cambridge, UK",
     "skills": ["Python", "Wireshark", "Nmap"],
     "description": "Assist with vulnerability scanning and threat monitoring.",
-    "apply": "https://www.securesys.com"
+    "apply": "https://www.securesys.com",
+    "status": "None"
   },
   {
     "title": "Junior Embedded Software Engineer",
@@ -125,7 +140,8 @@
     "location": "Nottingham, UK",
     "skills": ["C", "Embedded Linux", "Microcontrollers"],
     "description": "Develop firmware and support low-level system programming.",
-    "apply": "https://www.hardsoftsystems.com"
+    "apply": "https://www.hardsoftsystems.com",
+    "status": "None"
   },
   {
     "title": "Junior Cloud Developer",
@@ -133,7 +149,8 @@
     "location": "Leicester, UK",
     "skills": ["Azure", "Python", "Terraform"],
     "description": "Develop infrastructure automation scripts and serverless apps.",
-    "apply": "https://www.skycompute.com"
+    "apply": "https://www.skycompute.com",
+    "status": "None"
   },
   {
     "title": "Junior Site Reliability Engineer",
@@ -141,7 +158,8 @@
     "location": "Reading, UK",
     "skills": ["Linux", "Ansible", "Prometheus"],
     "description": "Monitor systems and build tools to improve reliability and uptime.",
-    "apply": "https://www.uptimepro.com"
+    "apply": "https://www.uptimepro.com",
+    "status": "None"
   },
   {
     "title": "Junior AR/VR Developer",
@@ -149,7 +167,8 @@
     "location": "Brighton, UK",
     "skills": ["Unity", "C#", "OpenXR"],
     "description": "Help build immersive AR and VR experiences for clients.",
-    "apply": "https://www.virtualscape.com"
+    "apply": "https://www.virtualscape.com",
+    "status": "None"
   },
   {
     "title": "Junior Software Developer",
@@ -157,7 +176,8 @@
     "location": "Manchester, UK",
     "skills": ["Python", "Django", "GitHub"],
     "description": "Join a cross-functional team building scalable internal tools.",
-    "apply": "https://www.bytelabs.com"
+    "apply": "https://www.bytelabs.com",
+    "status": "None"
   },
   {
     "title": "Marketing Assistant",
@@ -165,7 +185,8 @@
     "location": "London, UK",
     "skills": ["Social Media", "SEO", "Content Creation"],
     "description": "Support the marketing team with campaigns, analytics, and content production.",
-    "apply": "https://www.brandreach.com"
+    "apply": "https://www.brandreach.com",
+    "status": "None"
   },
   {
     "title": "Customer Service Representative",
@@ -173,7 +194,8 @@
     "location": "Birmingham, UK",
     "skills": ["Communication", "CRM", "Problem Solving"],
     "description": "Provide front-line support for customer inquiries via phone and email.",
-    "apply": "https://www.quickserve.com"
+    "apply": "https://www.quickserve.com",
+    "status": "None"
   },
   {
     "title": "Administrative Assistant",
@@ -181,7 +203,8 @@
     "location": "Manchester, UK",
     "skills": ["Microsoft Office", "Time Management", "Filing"],
     "description": "Handle scheduling, document prep, and general office support duties.",
-    "apply": "https://www.citycorp.com"
+    "apply": "https://www.citycorp.com",
+    "status": "None"
   },
   {
     "title": "Sales Associate",
@@ -189,7 +212,8 @@
     "location": "Leeds, UK",
     "skills": ["Customer Service", "POS Systems", "Teamwork"],
     "description": "Assist customers in-store and support daily retail operations.",
-    "apply": "https://www.trendhouse.com"
+    "apply": "https://www.trendhouse.com",
+    "status": "None"
   },
   {
     "title": "Receptionist",
@@ -197,7 +221,8 @@
     "location": "Bristol, UK",
     "skills": ["Phone Etiquette", "Scheduling", "Data Entry"],
     "description": "Greet patients, manage appointments, and handle basic inquiries at the front desk.",
-    "apply": "https://www.healthoneclinic.com"
+    "apply": "https://www.healthoneclinic.com",
+    "status": "None"
   },
   {
     "title": "Human Resources Assistant",
@@ -205,7 +230,8 @@
     "location": "Sheffield, UK",
     "skills": ["Recruitment Support", "Payroll Admin", "Data Handling"],
     "description": "Assist in onboarding, updating employee records, and HR communication.",
-    "apply": "https://www.peoplefirst.com"
+    "apply": "https://www.peoplefirst.com",
+    "status": "None"
   },
   {
     "title": "Event Coordinator Assistant",
@@ -213,7 +239,8 @@
     "location": "Glasgow, UK",
     "skills": ["Planning", "Vendor Communication", "Logistics"],
     "description": "Help plan and execute corporate and social events.",
-    "apply": "https://www.eliteevents.com"
+    "apply": "https://www.eliteevents.com",
+    "status": "None"
   },
   {
     "title": "Warehouse Operative",
@@ -221,7 +248,8 @@
     "location": "Liverpool, UK",
     "skills": ["Inventory Management", "Teamwork", "Health & Safety"],
     "description": "Pick, pack, and dispatch orders in a fast-paced environment.",
-    "apply": "https://www.packandgo.com"
+    "apply": "https://www.packandgo.com",
+    "status": "None"
   },
   {
     "title": "Teaching Assistant",
@@ -229,7 +257,8 @@
     "location": "Nottingham, UK",
     "skills": ["Classroom Support", "Childcare", "Organization"],
     "description": "Assist teachers in delivering lessons and supporting student activities.",
-    "apply": "https://www.brightfutureacademy.com"
+    "apply": "https://www.brightfutureacademy.com",
+    "status": "None"
   },
   {
     "title": "Content Writer (Entry Level)",
@@ -237,6 +266,7 @@
     "location": "Edinburgh, UK",
     "skills": ["Writing", "Editing", "Research"],
     "description": "Produce blog posts, website content, and support SEO campaigns.",
-    "apply": "https://www.wordcraftmedia.com"
+    "apply": "https://www.wordcraftmedia.com",
+    "status": "None"
   }
 ]
