@@ -10,7 +10,7 @@
         <h2>Saved Jobs</h2>
     </div>
 
-    <div class="jobs-grid">
+    <div class="jobs-grid" style="margin-top: 30px;">
         {% if save_jobs %}
             {% for job in save_jobs %}
                 <div class="job-card">
@@ -38,14 +38,29 @@
                         <form action='{{ job.apply }}' method='get'>
                             <button class="btn btn-primary" type='submit'>Apply</button>
                         </form>
-                        <form action="{{ url_for('search.save_jobs') }}" method="post">
+                        <form action="{{ url_for('search.display_save_jobs') }}" method="post">
                             <input type="hidden" name="job_id" value="{{ job.id }}">
                             <input type="hidden" name="user_id" value="{{ current_user.id }}">
+                            <input type="hidden" name="action" value="remove">
                             <button class="btn btn-secondary">Remove</button>
                         </form>
+                        <div class = 'application-status'>
+                            <h3 class="status-name">Enter application status:</h3>
+                            <form method="POST" action="/update-status" class="status-form">
+                                <select name="status" class="sort-dropdown">
+                                    <option value="Applied">Applied</option>
+                                    <option value="Interview">Interview</option>
+                                    <option value="Rejected">Rejected</option>
+                                </select>
+                                <input type="hidden" name="job_id" value="{{ job.id }}">
+                                <button type="submit" class="save-btn">Save</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             {% endfor %}
+        {%else%}
+            <h3 class = 'nojobs'> You have no saved jobs browse to add!!</h3>
         {% endif %}
     </div>
 

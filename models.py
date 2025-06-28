@@ -16,6 +16,7 @@ class Job(db.Model):
     description = db.Column(db.Text)  
     skills = db.Column(db.String(300)) 
     apply = db.Column(db.String(300))
+    status = db.Column(db.String(150))
 
 
 class SavedJob(db.Model):
