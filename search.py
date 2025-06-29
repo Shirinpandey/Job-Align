@@ -70,18 +70,18 @@ def display_save_jobs():
     return render_template('saved_jobs.html', save_jobs=jobs)
 
 
-def save_jobs(job_id,user_id):
-    if job_id:
-        existing = SavedJob.query.filter_by(job_id=job_id, user_id=user_id).first()
-        if not existing:
-            saved_job = SavedJob(job_id=job_id, user_id=user_id)
-            db.session.add(saved_job)
-            db.session.commit() 
 
-def remove_job(job_id,user_id):
-    if job_id:
-        saved = SavedJob.query.filter_by(job_id=job_id, user_id=user_id).first()
-        if saved:
-            db.session.delete(saved)
-            db.session.commit()
 
+@search.route('/update-status', methods=['POST'])
+def update_status():
+    new_status = request.form.get('status')
+    job_id = request.form.get('job_id')
+
+    job = Job.query.get(job_id)  
+
+    if job:
+        job.status = new_status  
+        db.session.commit()      
+        return '', 204           
+    else:
+        return "Job not found", 404
