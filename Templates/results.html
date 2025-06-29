@@ -67,8 +67,10 @@
                         </form>
                         <form action="{{ url_for('search.display_save_jobs') }}" method="post">
                             <input type="hidden" name="job_id" value="{{ job.id }}">
-                            <button class="btn btn-secondary">Save</button>
-                        </form>                       
+                            <input type="hidden" name="user_id" value="{{ current_user.id }}">
+                            <input type="hidden" name="action" value="save">
+                            <button class="btn btn-secondary">Save Job</button>
+                        </form>
                         </div>
                         <div class = 'application-status'>
                             <h3 class="status-name">Enter application status:</h3>
