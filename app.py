@@ -6,7 +6,7 @@ from os import path
 from extension import db, DB_NAME
 from search import load_jobs_once
 from flask_login import LoginManager, current_user
-
+import openai, os
 
 def create_app():
     app = Flask(__name__)

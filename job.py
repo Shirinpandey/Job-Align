@@ -25,6 +25,13 @@ def upload():
         if not file:
             return "No file uploaded"
         contents = cv_reading(file)
+
+        from models import CV
+
+        new_cv = CV(user_id = current_user.id if current_user else None, content= contents)
+        db.session.add(new_cv)
+        db.session.commit()
+        
         new_file = storefiles()
         cleaned_cv = clean_data(contents)
         cv_doc = nlp(cleaned_cv)
@@ -32,7 +39,6 @@ def upload():
         
         for job in new_file:
             cleaned_file = clean_data(job['description'])
-            
             job_doc = nlp(cleaned_file)
             similarity = cv_doc.similarity(job_doc)
             similarity_doc.append((job,similarity))
@@ -79,6 +85,7 @@ def cv_reading(file):
 
         else:
             contents = file.read().decode('utf-8')
+
     return contents
 
 
