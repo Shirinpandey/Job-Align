@@ -6,11 +6,9 @@ saveButtons.forEach(button => {
         console.log('Save button clicked'); // Debugging line
         const jobId = button.getAttribute('data_id');
         const action = button.getAttribute('action_needed');
-        console.log(jobId);
+        console.log(`Job ID: ${jobId}, Action: ${action}`);
         
-        // you have a save-job api so you have sent a post request there with the jobid and action 
-        // and expects response with {message: } in it 
-        fetch('save-job', {
+        fetch('http://127.0.0.1:5000/search/save-job', {  // Ensure the endpoint matches your Flask route
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ job_id: jobId, action: action })
@@ -28,14 +26,12 @@ saveButtons.forEach(button => {
             console.log('Response received:', data); // Debugging line
             alert(data.message);
 
-            // Remove the job card from the DOM if the action was 'remove'
             if (action === 'remove') {
                 const jobCard = button.closest('.job-card');
                 if (jobCard) {
                     jobCard.remove();
                 }
 
-                // Check if there are no more job cards
                 const jobGrid = document.querySelector('.jobs-grid');
                 if (jobGrid && jobGrid.children.length === 0) {
                     const noJobsMessage = document.createElement('h3');

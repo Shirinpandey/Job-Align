@@ -1,90 +1,85 @@
-    {% extends 'base.html'%}
-    {% block head %}
-        <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
-    {% endblock %}
+{% extends 'base.html' %}
 
-    {% block body %}
-    <div class="main-section results-section" id="resultsSection">
-        <div class="results-header">
-            <h2>Analysis Complete</h2>
-            <p>We found several job opportunities that match your profile</p>
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="main-section results-section" id="resultsSection">
+    <div class="results-header">
+        <h2>Analysis Complete</h2>
+        <p>We found several job opportunities that match your profile</p>
+    </div>
+
+    <div class="results-stats">
+        <div class="stat-card">
+            <span class="stat-number">{{ new_list | length }}</span>
+            <span class="stat-label">Total Jobs Analyzed</span>
         </div>
-
-        <div class="results-stats">
-            <div class="stat-card">
-                <span class="stat-number">{{new_list | length}}</span>
-                <span class="stat-label">Total Jobs Analyzed</span>
-            </div>
-            <div class="stat-card">
-                <span class="stat-number">{{job_listing| length}}</span>
-                <span class="stat-label">High Matches Found</span>
-            </div>
+        <div class="stat-card">
+            <span class="stat-number">{{ job_listing | length }}</span>
+            <span class="stat-label">High Matches Found</span>
         </div>
+    </div>
 
-        <div class="jobs-container">
-            <div class="jobs-header">
-                <select class="sort-dropdown">
-                    <option>Sort by Match Score</option>
-                    <option>Sort by Date Posted</option>
-                    <option>Sort by Company</option>
-                </select>
-            </div>
+    <div class="jobs-container">
+        <div class="jobs-header">
+            <select class="sort-dropdown">
+                <option>Sort by Match Score</option>
+                <option>Sort by Date Posted</option>
+                <option>Sort by Company</option>
+            </select>
+        </div>
 
         <!-- Job listings start here -->
-            <h2 class="section-title">Recommended Jobs for You</h2>
-            <div class="jobs-grid">
-                {% for job, score in job_listing %}
-                    <div class="job-card">
-                        <div class="job-header">
-                            <span class="job-badge">Job {{ loop.index }}</span>
-                            <div class="match-score">
-                                <div class="match-percentage">{{ (score * 100) | round(1) }}%</div>
-                                <div class="match-label">Match Rate</div>
-                            </div>
+        <h2 class="section-title">Recommended Jobs for You</h2>
+        <div class="jobs-grid">
+            {% for job, score in job_listing %}
+                <div class="job-card">
+                    <div class="job-header">
+                        <span class="job-badge">Job {{ loop.index }}</span>
+                        <div class="match-score">
+                            <div class="match-percentage">{{ (score * 100) | round(1) }}%</div>
+                            <div class="match-label">Match Rate</div>
                         </div>
-
-                        <div class="job-title">{{ job.title }}</div>
-
-                        <div class="company-info">
-                            <div class="company-name">{{ job.company }}</div>
-                            <div class="location">{{ job.location }}</div>
-                        </div>
-
-                        <div class="skills-container">
-                            <div class="skills-label">Required Skills</div>
-                            <div class="skills-list">
-                                {% for skill in job.skills %}
-                                    <span class="skill-tag">{{ skill }}</span>
-                                {% endfor %}
-                            </div>
-                        </div>
-
-                        <div class="job-description">{{ job.description }}</div>
-
-                        <div class="job-actions">
-
-
-                            <form action='{{ job.apply }}' method='get'>
-                                <button class="btn btn-primary" type='submit'>Apply</button>
-                            </form>
-
-                            <button class="btn btn-secondary" data_id="{{ job.id }}" action_needed='save'>Save</button>
-                        </div>
-
                     </div>
-                {% endfor %}
-            </div>
-            <!-- Job listings end -->
 
-<form action="{{ url_for('index') }}">
+                    <div class="job-title">{{ job.job_title }}</div>
+
+                    <div class="company-info">
+                        <div class="company-name">{{ job.company }}</div>
+                        <div class="location">{{ job.location }}</div>
+                    </div>
+
+                    <div class="skills-container">
+                        <div class="skills-label">Required Skills</div>
+                        <div class="skills-list">
+                            {% for skill in job.skills.split(', ') %}
+                                <span class="skill-tag">{{ skill }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="job-description">{{ job.description }}</div>
+
+                    <div class="job-actions">
+                        <form action='{{ job.apply }}' method='get'>
+                            <button class="btn btn-primary" type='submit'>Apply</button>
+                        </form>
+                        <button class="btn btn-secondary" data_id="{{ job.id }}" action_needed='save'>Save</button>
+                    </div>
+                </div> <!-- End job-card -->
+            {% endfor %}
+        </div> <!-- End jobs-grid -->
+        <!-- Job listings end -->
+    </div> <!-- End jobs-container -->
+
+    <form action="{{ url_for('index') }}">
         <div class="back-section">
-            <button class="back-button" id="backBtn" action = 'submit'>Go to home</button>
+            <button class="back-button" id="backBtn" action='submit'>Go to home</button>
         </div>
-    </ul>
-</form>
+    </form>
 
-
-
-<script src="{{ url_for('static', filename='script/save.js') }}"></script>
-
+    <script src="{{ url_for('static', filename='script/save.js') }}"></script>
+</div> <!-- End main-section -->
 {% endblock %}

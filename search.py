@@ -9,17 +9,20 @@ from sqlalchemy import or_, func
 
 search =  Blueprint('search',__name__)
 
-@search.route('job', methods = ['GET','POST'])
+@search.route('/job', methods = ['GET','POST'])
 def job_search():
     query = request.args.get('query', '').strip().lower()
     results = []
 
     if query:
+        query = query.lower()
+
         results = Job.query.filter(
             or_(
                 func.lower(Job.job_title).like(f"%{query}%"),
                 func.lower(Job.company).like(f"%{query}%"),
-                func.lower(Job.location).like(f"%{query}%")
+                func.lower(Job.location).like(f"%{query}%"),
+                func.lower(Job.skills).like(f"%{query}%")  # Search for the query in skills field
             )
         ).all()
     else:
@@ -43,7 +46,7 @@ def job_search():
 
 from flask import request, jsonify
 
-@search.route('/save-job', methods=['POST'])
+@search.route('save-job', methods=['POST'])
 @login_required
 def save_jobs():
     user_id = current_user.id

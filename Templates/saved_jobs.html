@@ -28,7 +28,9 @@
                     <div class="skills-container">
                         <div class="skills-label">Required Skills</div>
                         <div class="skills-list">
-                            <span class="skill-tag">{{ job.skills }}</span>
+                            {% for skill in job.skills.split(', ') %}  <!-- Split the skills string -->
+                                <span class="skill-tag">{{ skill }}</span>
+                            {% endfor %}
                         </div>
                     </div>
 

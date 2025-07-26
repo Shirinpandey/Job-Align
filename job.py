@@ -9,6 +9,8 @@ from models import Job, CV
 from auth import current_user
 from extension import db
 from models import Job
+import nltk
+nltk.download('stopwords')
 
 nlp = spacy.load("en_core_web_md")
 
@@ -47,15 +49,14 @@ def storefiles():
         jobs = json.load(f)
 
     for job_data in jobs:
-       existing_job = Job.query.filter_by(job_title=job_data['title'], company=job_data['company']).first()
-       if not existing_job:
+        existing_job = Job.query.filter_by(job_title=job_data['title'], company=job_data['company']).first()
+        if not existing_job:
             job_entry = Job(
                 job_title=job_data['title'],
                 location=job_data['location'],
                 company=job_data['company'],
                 description=job_data['description'],
-                skills=', '.join(job_data['skills']),
-                apply=job_data['apply']
+                skills=', '.join(job_data['skills'])  # Ensure skills are stored as a string
             )
             db.session.add(job_entry)
     db.session.commit()
