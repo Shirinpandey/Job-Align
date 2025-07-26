@@ -4,7 +4,6 @@ from job import job
 from search import search 
 from os import path
 from extension import db, DB_NAME
-from search import load_jobs_once
 from flask_login import LoginManager, current_user
 import openai, os
 
@@ -37,8 +36,6 @@ def create_app():
     @login_manager.user_loader
     def load_user(id):
         return User.query.get(int(id))
-    with app.app_context():
-        load_jobs_once() 
 
     return app
 

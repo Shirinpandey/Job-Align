@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
 {% endblock %}
@@ -42,23 +43,21 @@
                         <form action="{{ job.apply }}" method="get">
                             <button class="btn btn-primary" type="submit">Apply</button>
                         </form>
-                        <form action="{{ url_for('search.display_save_jobs') }}" method="post">
-                            <input type="hidden" name="job_id" value="{{ job.id }}">
-                            <input type="hidden" name="action" value="save">
-                            <button class="btn btn-secondary">Save</button>
-                        </form>                       
+                        <button class="btn btn-secondary" data_id="{{ job.id }}" action_needed = 'save'>Save</button>              
                     </div>
-                </div>
+                </div> <!-- Closing job-card -->
             {% endfor %}
         {% else %}
             <p>No jobs found.</p>
         {% endif %}
-    </div>
+    </div> <!-- Closing jobs-grid -->
 
     <form action="{{ url_for('index') }}">
         <div class="back-section">
             <button class="back-button" type="submit">Go to home</button>
         </div>
     </form>
-</div>
+</div> <!-- Closing main-section results-section -->
+
+<script src="{{ url_for('static', filename='script/save.js') }}"></script>
 {% endblock %}
