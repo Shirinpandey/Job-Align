@@ -1,5 +1,6 @@
 from extension import db 
 from flask_login import UserMixin 
+from datetime import datetime
 
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
@@ -17,7 +18,6 @@ class Job(db.Model):
     skills = db.Column(db.String(300)) 
     apply = db.Column(db.String(300))
     status = db.Column(db.String(150))
-
 
 class SavedJob(db.Model):
     id = db.Column(db.Integer, primary_key=True)

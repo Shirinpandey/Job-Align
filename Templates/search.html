@@ -14,9 +14,26 @@
     <h2 class="section-title">Recommended Jobs for You</h2>
     
     <div class="jobs-grid">
+        <div class="jobs-header">
+            <select class="sort-dropdown">
+                <!-- <option>Sort by Match Score</option> -->
+                <option>Filter by Company</option>
+                <option>Filter by Location</option>
+                <option>Filter by Skill</option>
+                <option>Filter by Job Title</option>
+            </select>
+            <button class = 'sort-button-apply'>Apply</button>
+        </div>
+
         {% if jobs %}
             {% for job in jobs %}
-                <div class="job-card">
+                <div class="job-card"
+                    data-title="{{ job.job_title }}"
+                    data-company="{{ job.company }}"
+                    data-location="{{ job.location }}"
+                    data-skill="{{ job.skills }}">
+
+
                     <div class="job-header">
                         <span class="job-badge">Job {{ loop.index }}</span>
                     </div>
