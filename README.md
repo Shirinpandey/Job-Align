@@ -1,32 +1,40 @@
-# JobAlign - AI-Powered Job Application Assistant
+# Job-Align
 
-JobAlign is an intelligent assistant designed to streamline and optimize your job application process. It leverages AI to help tailor resumes and cover letters, track applications, automate follow-ups, and provide smart insights — all in one place.
+Job-Align is an AI-powered job application assistant that helps users find job opportunities tailored to their resumes. Using NLP and keyword extraction, it intelligently matches user skills with relevant job listings. It also features user authentication, job search, and a foundation for future tools like application tracking and cover letter generation.
 
----
+## 🔍 Features
 
-## 🚀 Features
+- 🔐 **User Authentication** – Secure signup and login.
+- 📄 **Resume Parsing** – Upload your resume and extract key skills/technologies using NLP.
+- 💼 **AI-Based Job Matching** – Get job suggestions based on resume content.
+- 🔎 **Keyword Search** – Search for jobs by keywords and categories.
+- 🧾 **Job Tracker** *(Coming Soon)* – Track saved jobs and application status.
+- 📝 **Cover Letter Generator** *(Planned)* – Auto-generate tailored cover letters using AI.
 
-- **Resume & Cover Letter Tailoring:** Uses AI to customize your documents based on job descriptions.
-- **Application Tracker:** Keep organized records of jobs applied to, statuses, and deadlines.
-- **Automated Follow-ups:** Schedule and send follow-up emails automatically.
-- **Chatbot Interface:** Interact with the assistant via a friendly chat interface for guidance and tips.
-- **Analytics Dashboard:** Gain insights into your application progress and response rates.
+## 🛠️ Tech Stack
 
----
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Python, Flask
+- **AI/NLP Tools:** (e.g. spaCy, or custom extractors)
+- **Authentication:** Flask-Login (depending on implementation)
 
-## 💻 Tech Stack
+## 🚀 Getting Started
 
-- **Backend:**  Python / Flask
-- **Frontend:** HTML / CSS / JavaScript
-- **AI:** OpenAI GPT API for natural language processing and content generation
-- **Database:** SQLITE
+### ✅ Prerequisites
 
----
+- Python 3.8+
+- Flask
+- Virtual environment tool like `venv`
 
-## 📦 Installation & Setup
-
-1. Clone the repository:
+### 📦 Installation
 
 ```bash
-git clone https://github.com/your-username/jobalign.git
-cd jobalign
+git clone https://github.com/Shirinpandey/Job-Align.git
+cd Job-Align
+
+python -m venv venv
+source venv/bin/activate  # On Windows use venv\Scripts\activate
+
+pip install -r requirements.txt
+
+flask run
