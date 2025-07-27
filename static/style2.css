@@ -143,6 +143,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    gap: 10px; /* Add a small gap between the dropdown and button */
     margin-bottom: 1.5rem;
 }
 
@@ -376,3 +377,47 @@ a:hover {
 .save-btn:hover {
     background-color: #047857; 
 }
+/* Jobs Header */
+.jobs-header {
+    display: flex;
+    justify-content: flex-start; /* Align items to the start */
+    align-items: center;
+    gap: 10px; /* Add a small gap between the dropdown and button */
+    margin-bottom: 2rem;
+}
+
+/* Sort Dropdown */
+.sort-dropdown {
+    border-radius: 8px;
+    border: 1px solid var(--primary-blue);
+    font-size: 0.95rem;
+    background-color: var(--primary-blue-light);
+    color: var(--white);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    padding: 0.5rem 1rem; /* Ensure consistent padding */
+}
+
+.sort-dropdown:hover {
+    background-color: var(--gray-400);
+}
+
+/* Sort Button */
+.sort-button-apply {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: 0.5rem 1rem; /* Ensure consistent padding */
+}
+
+.sort-button-apply:hover {
+    background-color: var(--primary-blue-dark);
+    transform: scale(1.05);
+}
+
