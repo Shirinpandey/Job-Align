@@ -23,7 +23,7 @@ import requests
 
 from openai import OpenAI
 
-client = OpenAI(api_key="sk-2bd284cea7d84749a3cfff55e43005b7", base_url="https://api.deepseek.com")
+client = OpenAI(api_key="api", base_url="https://api.deepseek.com")
 
 response = client.chat.completions.create(
     model="deepseek-reasoner",
